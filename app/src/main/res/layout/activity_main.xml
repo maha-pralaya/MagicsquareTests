@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hello"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.magicsquare.MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:textAlignment="center"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2">
+
+        <Button
+            android:id="@+id/buttonRules"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:onClick="showrules"
+            android:text="@string/rules" />
+
+        <Button
+            android:id="@+id/buttonNew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:onClick="newgame"
+            android:text="@string/newgame" />
+
+        <Button
+            android:id="@+id/buttonAdv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:onClick="advancedgame"
+            android:text="@string/advancedplayer" />
+
+        <Button
+            android:id="@+id/buttonExp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:onClick="expertgame"
+            android:text="@string/expertplayer" />
+
+    </GridLayout>
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">MagicSquare</string>
+    <string name="emptyanswer"></string>
+    <string name="addition">"+"</string>
+    <string name="equal">"="</string>
+    <string name="empty">""</string>
+    <string name="rule">Numbers 1 to 9 have to be used once and only once</string>
+    <string name="submit">Submit</string>
+    <string name="resume">Resume</string>
+    <string name="newgame">New game</string>
+    <string name="rules">Rules</string>
+    <string name="exitgame">Exit</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="welcome">Welcome to MagicSquare (better version)!</string>
+    <string name="advancedplayer">Advanced</string>
+    <string name="expertplayer">Expert</string>
+    <string name="help">Help!</string>
+</resources>
