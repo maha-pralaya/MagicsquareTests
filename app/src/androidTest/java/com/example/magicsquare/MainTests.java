@@ -5,15 +5,17 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.assertion.PositionAssertions.isCompletelyBelow;
 import static androidx.test.espresso.assertion.PositionAssertions.isCompletelyLeftOf;
-import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 @RunWith(AndroidJUnit4.class)
@@ -21,6 +23,8 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 public class MainTests extends ActivityTestRule<MainActivity> {
     private static String TAG = MainTests.class.getSimpleName();
 
+    @Rule
+    public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
     private MainActivity mActivity;
 
     public MainTests() {
@@ -30,12 +34,12 @@ public class MainTests extends ActivityTestRule<MainActivity> {
 
     // Проверка существования элементов
     @Test
-    public void testElementDoesNotExists() {
-        onView(withId(R.id.buttonRules)).check(doesNotExist());
-        onView(withId(R.id.buttonNew)).check(doesNotExist());
-        onView(withId(R.id.buttonAdv)).check(doesNotExist());
-        onView(withId(R.id.buttonExp)).check(doesNotExist());
-        onView(withId(R.id.hello)).check(doesNotExist());
+    public void testElementsDisplayed() {
+        onView(withId(R.id.buttonRules)).check(matches(isDisplayed()));
+        onView(withId(R.id.buttonNew)).check(matches(isDisplayed()));
+        onView(withId(R.id.buttonAdv)).check(matches(isDisplayed()));
+        onView(withId(R.id.buttonExp)).check(matches(isDisplayed()));
+        onView(withId(R.id.hello)).check(matches(isDisplayed()));
     }
 
     // Проверка размещения кнопок
@@ -49,11 +53,15 @@ public class MainTests extends ActivityTestRule<MainActivity> {
 
     // Проверка доступности кнопок
     @Test
-    public void testIsEnabled() {
-        onView(withId(R.id.buttonRules)).check(matches(isClickable()));
-        onView(withId(R.id.buttonNew)).check(matches(isClickable()));
-        onView(withId(R.id.buttonAdv)).check(matches(isClickable()));
-        onView(withId(R.id.buttonExp)).check(matches(isClickable()));
+    public void testElementsEnabled() {
+        onView(withId(R.id.buttonRules)).check(matches(isEnabled()));
+        onView(withId(R.id.buttonNew)).check(matches(isEnabled()));
+        onView(withId(R.id.buttonAdv)).check(matches(isEnabled()));
+        onView(withId(R.id.buttonExp)).check(matches(isEnabled()));
+        //onView(withId(R.id.buttonRules)).check(matches(isClickable()));
+        //onView(withId(R.id.buttonNew)).check(matches(isClickable()));
+        //onView(withId(R.id.buttonAdv)).check(matches(isClickable()));
+        //onView(withId(R.id.buttonExp)).check(matches(isClickable()));
     }
 
 }

@@ -12,27 +12,29 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.widget.Button;
 
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(manifest=Config.NONE)
+@Config(manifest=Config.NONE,sdk=28)
 
 public class MainUnitTest {
     MainActivity mainActivity;
-    Button btnNewgame;
+    Button btnNewGame;
     ShadowActivity shadowActivity;
 
     @Before
     public void setUp() {
         mainActivity = Robolectric.setupActivity(MainActivity.class);
-        btnNewgame = (Button)mainActivity.findViewById(R.id.buttonNew);
+        btnNewGame = mainActivity.findViewById(R.id.buttonNew);
     }
 
     @Test
     public void testActivityStart() throws Exception {
-        btnNewgame.performClick();
+        btnNewGame.performClick();
 
         Intent intent = shadowActivity.peekNextStartedActivityForResult().intent;
         assertEquals(intent.getStringExtra(GameActivity.EXTRA_MESSAGE),"GameActivity");

@@ -14,9 +14,7 @@ import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static androidx.test.espresso.matcher.ViewMatchers.isFocusable;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
@@ -33,7 +31,7 @@ public class GameTests extends ActivityTestRule<GameActivity>{
 
     // Проверка доступности кнопок
     @Test
-    public void testIsEnabled() {
+    public void testElementsEnabled() {
         onView(withId(R.id.submit)).check(matches(isEnabled()));
         onView(withId(R.id.newgame)).check(matches(isEnabled()));
         onView(withId(R.id.resume)).check(matches(isEnabled()));
@@ -43,7 +41,7 @@ public class GameTests extends ActivityTestRule<GameActivity>{
 
     // Проверка доступности полей ввода
     @Test
-    public void testEditTextIsDisplayed() {
+    public void testEditTextDisplayed() {
         onView(withId(R.id.res_0)).check(matches(isDisplayed()));
         onView(withId(R.id.res_1)).check(matches(isDisplayed()));
         onView(withId(R.id.res_2)).check(matches(isDisplayed()));
